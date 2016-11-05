@@ -1,0 +1,43 @@
+<script>
+	function sumAll(someArray)
+	{
+		var sum=0;
+		for (var i in someArray)
+			sum += someArray[i];
+			
+		return sum;
+	}
+	
+	var arr=[1,2,3,4,5];
+	document.write(sumAll(arr));
+	document.write("<br />");
+	
+	function applyToAll(F, C)
+	{
+		for (var i in C)
+			F( C[i]);
+	}
+	// alert each element of the given array
+	function alertAll(someArray)
+	{ applyToAll(alert, someArray)}
+	
+	// another way to write the above, demonstrating JavaScript's flexibility:
+	function alertAll_v2(someArray)
+	{ applyToAll(new Function("e", "alert(e);"),someArray);}
+	
+	//returns summ of all elements in the given array
+	function summAll2(someArray)
+	{
+		var temp=0.0;
+		applyToAll(function addToTemp(e) {temp +=e;}, someArray);
+		return temp;
+	}
+	var rg = [0,1,2,3];
+	//alertAll(rg);
+	document.write(summAll2(rg));
+	document.write("<hr />");
+	
+	
+</script>
+
+	
